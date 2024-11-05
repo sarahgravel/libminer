@@ -3,17 +3,32 @@
 #' Provide the number of R package by library in
 #'  a data.frame
 #'
-#' @return a data.frame of R packages by library
+#' @param sizes Should sizes of libraries be calculated. Default 'FALSE'
+#'
+#' @return A data.frame containing the count of packages in each of the user's R libraries
 #' @export
 #'
 #' @examples
 #' lib_summary
-lib_summary <- function() {
-  pkgs <- utils::installed.packages() # What pkgs are installed in our system
+lib_summary <- function(sizes = FALSE) {
+  if (!is.logical(sizes)) {
+    stop("'sizes' must be logical (TRUE or FALSE)")
+  }
+  pkgs <- utils::installed.packages()
   pkg_tbl <- table(pkgs[, "LibPath"])
-  pkg_df <- as.data.frame(pkg_tbl, stringsAsFactors=FALSE)
+  pkg_df <- as.data.frame(pkg_tbl, stringsAsFactors = FALSE)
   names(pkg_df) <- c("Library", "n_packages")
-  pkg_df # returns it (we don't need to use return() function unless you want to return an object "early")
+
+  if (isTRUE(sizes)) {
+    pkg_df$lib_size <- vapply(
+      pkg_df$Library,
+      function(x) {
+        sum(fs::file_size(fs::dir_ls(x, recurse = TRUE)))
+      },
+      FUN.VALUE = numeric(1)
+    )
+  }
+  pkg_df
 }
 
 # Try your function! (lib-summary)
