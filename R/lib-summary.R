@@ -11,7 +11,7 @@
 lib_summary <- function() {
   pkgs <- utils::installed.packages() # What pkgs are installed in our system
   pkg_tbl <- table(pkgs[, "LibPath"])
-  pkg_df <- as.data.frame(pkg_tbl, stringsAsFactor=F)
+  pkg_df <- as.data.frame(pkg_tbl, stringsAsFactors=FALSE)
   names(pkg_df) <- c("Library", "n_packages")
   pkg_df # returns it (we don't need to use return() function unless you want to return an object "early")
 }
