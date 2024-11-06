@@ -8,6 +8,13 @@
 \description{
 Provides functions for learning about your R libraries, and the packages you have installed.
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://sarahgravel.github.io/libminer/}
+}
+
+}
 \author{
 \strong{Maintainer}: Sarah Gravel \email{sarahgravel95@gmail.com} (\href{https://orcid.org/YOUR-ORCID-ID}{ORCID})
 

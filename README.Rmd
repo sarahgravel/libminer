@@ -26,8 +26,10 @@ The goal of libminer is to ...
 You can install the development version of libminer like so:
 
 ``` r
-# FILL THIS IN! HOW CAN PEOPLE INSTALL YOUR DEV PACKAGE?
+
 ```
+
+
 
 ## Example
 
@@ -35,7 +37,13 @@ This is a basic example which shows you how to solve a common problem:
 
 ```{r example}
 library(libminer)
-## basic example code
+lib_summary()
+```
+
+And you can use the `lib()` function:
+
+```{r}
+lib()
 ```
 
 What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
