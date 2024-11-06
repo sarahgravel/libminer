@@ -15,3 +15,4 @@ Config/testthat/edition: 3
 Imports: 
     fs,
     purrr
+URL: https://sarahgravel.github.io/libminer/
