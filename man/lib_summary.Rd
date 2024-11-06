@@ -5,9 +5,11 @@
 \title{Provide Number of R Packages by Library
 R Library Summary}
 \usage{
-lib_summary(sizes = FALSE)
+lib_summary(by = .data$LibPath, sizes = FALSE)
 }
 \arguments{
+\item{by}{The grouping variable, grouped by LibPath, i.e. by library path}
+
 \item{sizes}{Should sizes of libraries be calculated. Default \code{FALSE}.}
 }
 \value{
